@@ -3,7 +3,7 @@
   font-family: Poppins;
   padding: 0;
   margin: 0;
-  color: white;
+
 }
 
 body{
@@ -86,4 +86,7 @@ section {
   border: 1px solid white;
   width: 500px;
 
+}
+.forms{
+  margin-top: 4%;
 }

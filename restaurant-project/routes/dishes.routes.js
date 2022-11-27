@@ -4,7 +4,7 @@ const Dish = require("../models/Dish.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
-router.get("/dishes/create",isLoggedIn, (req, res, next) => {
+router.get("/dishes/create", isLoggedIn, (req, res, next) => {
   try {
     res.render("dishes/dish-create");
   } catch (error) {
@@ -12,7 +12,7 @@ router.get("/dishes/create",isLoggedIn, (req, res, next) => {
   }
 });
 
-router.post("/dishes/create",isLoggedIn, async (req, res, next) => {
+router.post("/dishes/create", isLoggedIn, async (req, res, next) => {
   try {
     console.log(req.body);
     const { name, image, ingredients, type } = req.body;
@@ -65,7 +65,7 @@ router.get("/dishes/:id", async (req, res, next) => {
   }
 });
 
-router.get("/dishes/:id/edit", async (req, res, next) => {
+router.get("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
   try {
     const { id } = req.params;
     const dish = await Dish.findById(id);
@@ -75,7 +75,7 @@ router.get("/dishes/:id/edit", async (req, res, next) => {
   }
 });
 
-router.post("/dishes/:id/edit", async (req, res, next) => {
+router.post("/dishes/:id/edit",isLoggedIn, async (req, res, next) => {
   try {
     const { id } = req.params;
     const { name, image, ingredients, type } = req.body;
@@ -85,7 +85,17 @@ router.post("/dishes/:id/edit", async (req, res, next) => {
       ingredients,
       type,
     });
-    res.redirect(`/dishes/${id}`);
+    res.redirect(`/`);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/dishes/:id/delete",isLoggedIn, async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await Dish.findByIdAndDelete(id);
+    res.redirect("/");
   } catch (error) {
     next(error);
   }
