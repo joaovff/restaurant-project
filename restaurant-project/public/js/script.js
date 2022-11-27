@@ -2,3 +2,4 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("restaurant-project JS imported successfully!");
 });
+
