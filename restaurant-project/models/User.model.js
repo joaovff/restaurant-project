@@ -15,14 +15,21 @@ const userSchema = new Schema(
       unique: true,
       trim: true,
       lowercase: true,
+      match: [
+        /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+        "Please provide a valid email.",
+      ],
     },
     password: {
       type: String,
-      required: true,
+      required: [true, "Password is required"],
+    },
+    isOwner: {
+      type: Boolean,
+      default: false,
     },
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
   }
 );

@@ -1,0 +1,28 @@
+<h2>Create a dish</h2>
+
+<form action="/dishes/create" method="post">
+  <label>Name
+    <input type="text" name="name" />
+  </label>
+
+  {{! O name define o que vai ser criado,
+   tem de ser baseado no Book.model }}
+
+  <label>
+    Image
+    <input type="text" name="image" />
+  </label>
+
+  <label>
+    Ingredients
+    <input type="text" name="ingredients" />
+  </label>
+
+  <label for="type">Type</label>
+  <select name="type" id="type">
+    <option value="starter">Starter</option>
+    <option value="main">Main</option>
+    <option value="dessert">Dessert</option>
+  </select>
+  <button type="submit">Create</button>
+</form>

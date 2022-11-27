@@ -1,0 +1,8 @@
+{{#each dish}}
+  <div>
+    <h3>{{name}}</h3>
+    <img src="{{image}}" width="400" />
+    <p>{{ingredients}}</p>
+    <a href="/dishes/{{_id}}/edit">Edit Dish</a>
+  </div>
+{{/each}}
