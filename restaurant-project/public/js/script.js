@@ -9,7 +9,7 @@ function startMap() {
     lng: -9.124110649886294,
   };
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 18,
+    zoom: 15,
     center: ironhackBCN,
   });
   const myMarker = new google.maps.Marker({

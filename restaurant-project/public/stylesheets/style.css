@@ -18,14 +18,13 @@ body{
 header {
   display: flex;
   flex-direction: column;
-  height: 80%;
+  height: 75%;
   justify-content: center;
   background-image: url(/images/bg.jpg);
-  background-size: 140%;
+  background-size: 120%;
   background-position-x: 70% ;
   background-position-y: 40% ;
   background-repeat: no-repeat;
-
 }
 
 .scroll-div {
@@ -36,10 +35,9 @@ header {
 
 .catchphrase {
   color: #fec634;
-  margin-top: 5%;
   font-size: 1.2rem;
   text-align: justify;
-  width: 35%;
+  width: 43%;
   font-weight: 200;
 }
 
@@ -47,10 +45,10 @@ section {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 6%;
 }
 
 .text-type {
+  margin-top: 20%;
   text-align: center;
   color: #fec634;
   font-size: 1.5rem;
@@ -58,7 +56,6 @@ section {
 }
 
 .container-type {
-  border: 1px solid white;
   padding-bottom: 2%;
   margin-bottom: 5%;
 }
@@ -72,7 +69,7 @@ section {
   display: flex;
   justify-content: space-between;
   height: 30%;
-  border: 1px solid white;
+
   margin-bottom: 5%;
 }
 
@@ -231,3 +228,6 @@ address {
 .fab.show button.main + ul li:hover label{
   opacity: 1;
 }
+ .starters {
+  margin-top: -5%;
+ }
