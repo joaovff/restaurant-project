@@ -3,6 +3,7 @@ const router = express.Router();
 const Dish = require("../models/Dish.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
+const fileUploader = require("../config/cloudinary.config");
 
 router.get("/dishes/create", isLoggedIn, (req, res, next) => {
   try {
@@ -12,22 +13,24 @@ router.get("/dishes/create", isLoggedIn, (req, res, next) => {
   }
 });
 
-router.post("/dishes/create", isLoggedIn, async (req, res, next) => {
-  try {
-    console.log(req.body);
-    const { name, image, ingredients, type } = req.body;
-    const createdDish = await Dish.create({
-      name,
-      image,
-      ingredients,
-      type,
-    });
-    console.log("A new dish was created", createdDish);
-    res.redirect("/");
-  } catch (error) {
-    next(error);
+router.post(
+  "/dishes/create",
+  fileUploader.single("image"),
+  isLoggedIn,
+  async (req, res, next) => {
+    try {
+      const { name, image, ingredients, type } = req.body;
+      const dish = { name, ingredients, type };
+      if (req.file) {
+        dish.image = req.file.path;
+      }
+      const newDish = await Dish.create(dish);
+      res.redirect("/");
+    } catch (error) {
+      next(error);
+    }
   }
-});
+);
 
 router.get("/dishes/starters", async (req, res, next) => {
   try {
@@ -57,7 +60,6 @@ router.get("/dishes/desserts", async (req, res, next) => {
 router.get("/dishes/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-
     const dish = await Dish.findById(id);
     res.render("dishes/dish-details", dish);
   } catch (error) {
@@ -65,15 +67,20 @@ router.get("/dishes/:id", async (req, res, next) => {
   }
 });
 
-router.get("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const dish = await Dish.findById(id);
-    res.render("dishes/dish-edit", dish);
-  } catch (error) {
-    next(error);
+router.get(
+  "/dishes/:id/edit",
+  fileUploader.single("image"),
+  isLoggedIn,
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const dish = await Dish.findById(id);
+      res.render("dishes/dish-edit", dish);
+    } catch (error) {
+      next(error);
+    }
   }
-});
+);
 
 router.post("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
   try {
