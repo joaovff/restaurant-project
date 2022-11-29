@@ -106,7 +106,7 @@ Dishes model
 
 ## API's
   Google Maps API
-
+  	QR API
 <br>
 
 ## Packages

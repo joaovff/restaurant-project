@@ -18,6 +18,7 @@
   <label>
     Type
     <select name="type" id="type">
+      {{!-- <option value="{{type}}" selected >{{type}}</option> --}}
       <option value="starter">Starter</option>
       <option value="main">Main</option>
       <option value="dessert">Dessert</option>
@@ -28,5 +29,5 @@
 </form>
 
  <form action="/dishes/{{_id}}/delete" method="post">
-    <button type="submit">Delete</button>
+    <button type="submit">Delete</button> 
   </form>
