@@ -12,7 +12,7 @@ module.exports = (app) => {
       cookie: {
         sameSite: process.env.NODE.ENV === "production" ? "none" : "lax",
         secure: process.env.NODE_ENV === "production",
-        maxAge: 6000,
+        maxAge: 600000,
       },
       rolling: true,
       store: MongooseStore.create({

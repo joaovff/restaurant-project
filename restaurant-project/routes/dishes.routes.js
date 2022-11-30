@@ -67,18 +67,13 @@ router.get("/dishes/:id", async (req, res, next) => {
   }
 });
 
-router.get(
-  "/dishes/:id/edit",
-  fileUploader.single("image"),
-  isLoggedIn,
-  async (req, res, next) => {
-    try {
-      const { id } = req.params;
-      const dish = await Dish.findById(id);
-      res.render("dishes/dish-edit", dish);
-    } catch (error) {
-      next(error);
-    }
+router.get("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const dish = await Dish.findById(id);
+    res.render("dishes/dish-edit", dish);
+  } catch (error) {
+    next(error);
   }
 );
 
