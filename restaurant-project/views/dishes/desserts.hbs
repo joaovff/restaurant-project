@@ -2,7 +2,7 @@
   {{#each dish}}
     <div>
       <h3>{{name}}</h3>
-      <img src="{{image}}" width="400" />
+      <a href="/dishes/{{_id}}"><img src="{{image}}" width="250" /></a>
       <p>{{ingredients}}</p>
       <a href="/dishes/{{_id}}/edit">Edit Dish</a>
     </div>

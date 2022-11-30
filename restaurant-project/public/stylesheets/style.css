@@ -278,3 +278,12 @@ address {
   align-items: center;
   color: white;
 }
+
+.time {
+  margin-bottom: 5%;
+}
+
+.table-submit {
+  background-color: #fec634;
+  border: 0;
+}

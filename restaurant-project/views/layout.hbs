@@ -58,11 +58,96 @@
         </li>
         <li>
           <label for="option2">Book a table</label>
-          <button id="option2">
+          <button
+            id="option2"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
             📑
           </button>
         </li>
       </ul>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Book a table</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              action="mailto:example@example.com"
+              method="post"
+              enctype="text/plain"
+            >
+              Name:<br />
+              <input type="text" name="name" /><br />
+              Email:<br />
+              <input type="text" name="mail" /><br />
+              Table for:
+              <br />
+              <input type="number" name="people" min="1" max="10" />
+              <br />
+              Date:
+              <br />
+              <input type="date" name="date" /><br />
+              Time:
+              <br />
+              <select class="time" name="time">
+                <option value="" selected>Select the time</option>
+                <option value="12:00">12:00</option>
+                <option value="12:15">12:15</option>
+                <option value="12:30">12:30</option>
+                <option value="12:45">12:45</option>
+                <option value="13:00">13:00</option>
+                <option value="13:15">13:15</option>
+                <option value="13:30">13:30</option>
+                <option value="13:45">13:45</option>
+                <option value="14:00">14:00</option>
+                <option value="14:15">14:15</option>
+                <option value="14:30">14:30</option>
+                <option value=""></option>
+                <option value="19:00">19:00</option>
+                <option value="19:15">19:15</option>
+                <option value="19:30">19:30</option>
+                <option value="19:45">19:45</option>
+                <option value="20:00">20:00</option>
+                <option value="20:15">20:15</option>
+                <option value="20:30">20:30</option>
+                <option value="20:45">20:45</option>
+                <option value="21:00">21:00</option>
+                <option value="21:15">21:15</option>
+                <option value="21:30">21:30</option>
+
+              </select>
+              <br />
+              <button
+                type="button"
+                class="btn btn-secondary send-btn"
+                data-bs-dismiss="modal"
+              >Close</button>
+              <button type="submit" class="btn btn-primary table-submit">Send</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+
+          </div>
+        </div>
+      </div>
     </div>
     {{{body}}}
     <script
