@@ -75,7 +75,7 @@ router.get("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-);
+});
 
 router.post("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
   try {
