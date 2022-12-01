@@ -77,16 +77,17 @@ router.get("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
   }
 });
 
-/* router.post("/dishes/:id", async (req, res, next) => {
+router.post("/dishes/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { stars } = req.body;
+    const { stars, comments } = req.body;
     const postReview = await Dish.findByIdAndUpdate(
       id,
       {
-          rating: $push: {
-            stars
-          },
+        $push: {
+          "rating.stars": stars,
+          "rating.comment": comments,
+        },
       },
       { new: true }
     );
@@ -95,7 +96,7 @@ router.get("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-}); */
+});
 
 router.post(
   "/dishes/:id/edit",
@@ -105,7 +106,7 @@ router.post(
     try {
       const { id } = req.params;
       const { name, ingredients, type, price } = req.body;
-      const item = {name, ingredients, type, price}
+      const item = { name, ingredients, type, price };
       if (req.file) {
         item.image = req.file.path;
       }
