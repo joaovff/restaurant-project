@@ -19,8 +19,8 @@ router.post(
   isLoggedIn,
   async (req, res, next) => {
     try {
-      const { name, image, ingredients, type } = req.body;
-      const dish = { name, ingredients, type };
+      const { name, image, ingredients, type, price } = req.body;
+      const dish = { name, ingredients, type, price };
       if (req.file) {
         dish.image = req.file.path;
       }
@@ -77,21 +77,50 @@ router.get("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
   }
 });
 
-router.post("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
+router.post("/dishes/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { name, image, ingredients, type } = req.body;
-    const updateDish = await Dish.findByIdAndUpdate(id, {
-      name,
-      image,
-      ingredients,
-      type,
-    });
-    res.redirect(`/`);
+    const review = ({ stars } = req.body);
+    const postReview = await Dish.findByIdAndUpdate(
+      id,
+      {
+        $push: {
+          stars,
+        },
+      },
+      { new: true }
+    );
+    console.log(postReview);
+    res.redirect(`/dishes/${id}`);
   } catch (error) {
     next(error);
   }
 });
+
+router.post(
+  "/dishes/:id/edit",
+  fileUploader.single("image"),
+  isLoggedIn,
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const item = ({ name, image, ingredients, type, price } = req.body);
+      const updateDish = await Dish.findByIdAndUpdate(id, {
+        name,
+        image,
+        ingredients,
+        type,
+        price,
+      });
+      if (req.file) {
+        item.image = req.file.path;
+      }
+      res.redirect(`/`);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 
 router.post("/dishes/:id/delete", isLoggedIn, async (req, res, next) => {
   try {

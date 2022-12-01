@@ -24,10 +24,6 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Password is required"],
     },
-    isOwner: {
-      type: Boolean,
-      default: false,
-    },
   },
   {
     timestamps: true,
