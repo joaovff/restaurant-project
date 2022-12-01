@@ -9,6 +9,9 @@ const dishSchema = new Schema(
       type: String,
       enum: ["starter", "main", "dessert"],
     },
+    price: Number,
+    stars: [Number],
+    comments: [Number],
   },
   {
     timestamps: true,
