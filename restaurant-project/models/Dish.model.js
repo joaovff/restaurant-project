@@ -10,8 +10,12 @@ const dishSchema = new Schema(
       enum: ["starter", "main", "dessert"],
     },
     price: Number,
-    stars: [Number],
-    comments: [Number],
+/*     stars: [Number],
+    comments: [Number], */
+    rating: {
+      stars: [Number],
+      comments: [Number],
+    },
   },
   {
     timestamps: true,
