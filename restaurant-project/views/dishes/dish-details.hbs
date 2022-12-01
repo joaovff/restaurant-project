@@ -1,17 +1,67 @@
 <div class="testing">
-  {{name}}
-  <img src="{{image}}" alt="" height="600" />
-  {{ingredients}}
-  <div class="rate">
-    <input type="radio" id="star5" name="rate" value="5" />
-    <label for="star5" title="text">5 stars</label>
-    <input type="radio" id="star4" name="rate" value="4" />
-    <label for="star4" title="text">4 stars</label>
-    <input type="radio" id="star3" name="rate" value="3" />
-    <label for="star3" title="text">3 stars</label>
-    <input type="radio" id="star2" name="rate" value="2" />
-    <label for="star2" title="text">2 stars</label>
-    <input type="radio" id="star1" name="rate" value="1" />
-    <label for="star1" title="text">1 star</label>
-  </div>
+   {{name}}
+   <img src="{{image}}" alt="" height="600" />
+   {{ingredients}}
+   <div class="rate">
+      <input type="radio" id="star5" name="rate" value="5" />
+      <label for="star5" title="text" onclick=showGoodComments()>5 stars</label>
+      <input type="radio" id="star4" name="rate" value="4" />
+      <label for="star4" title="text" onclick=showGoodComments()>4 stars</label>
+      <input type="radio" id="star3" name="rate" value="3" />
+      <label for="star3" title="text" onclick=showBadComments()>3 stars</label>
+      <input type="radio" id="star2" name="rate" value="2" />
+      <label for="star2" title="text" onclick=showBadComments()>2 stars</label>
+      <input type="radio" id="star1" name="rate" value="1" />
+      <label for="star1" title="text" onclick=showBadComments()>1 star</label>
+   </div>
+</div>
+<div id="showGood" style="display:none">
+
+   <div class="container text-center">
+      <div class="row">
+         <div class="col-6 col-sm-4"><input
+               type="checkbox"
+               class="btn-check"
+               id="btn-check-2"
+               Very
+               tasty
+               autocomplete="off"
+            />
+            <label class="btn btn-primary" for="btn-check-2">Very tasty</label></div>
+         <div class="col-6 col-sm-4"><input
+               type="checkbox"
+               class="btn-check"
+               id="btn-check-2"
+               Well
+               presented
+               autocomplete="off"
+            />
+            <label class="btn btn-primary" for="btn-check-2">Well presented</label></div>
+
+         <div class="w-100 d-none d-md-block"></div>
+
+         <div class="col-6 col-sm-4"><input
+               type="checkbox"
+               class="btn-check"
+               id="btn-check-2"
+               Good
+               portion
+               autocomplete="off"
+            />
+            <label class="btn btn-primary" for="btn-check-2">Good portion</label></div>
+         <div class="col-6 col-sm-4"><input
+               type="checkbox"
+               class="btn-check"
+               id="btn-check-2"
+               Good
+               seasoning
+               autocomplete="off"
+            />
+            <label class="btn btn-primary" for="btn-check-2">Good seasoning</label></div>
+      </div>
+   </div>
+</div>
+
+<div>
+  <button id="showBad" style="display:none"> button for bad comment</button>
 </div>
