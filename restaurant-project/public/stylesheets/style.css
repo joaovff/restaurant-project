@@ -287,3 +287,14 @@ address {
   background-color: #fec634;
   border: 0;
 }
+
+.qr-icon {
+  margin-left: -14%;
+}
+
+.qr-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

@@ -53,7 +53,12 @@ function showBadComments() {
 const myModal = document.getElementById("myModal");
 const myInput = document.getElementById("myInput");
 
-myModal.addEventListener("shown.bs.modal", () => {
-  myInput.focus();
-});
 
+const QRCode = () => {
+  const userInput = document.getElementById("link").value;
+  const GoogleChartAPI =
+    "https://chart.googleapis.com/chart?cht=qr&chs=300x300&chld=H&chl=";
+  const QRcontent = GoogleChartAPI + encodeURIComponent(userInput);
+  document.querySelector("#QRCodeImage").src = QRcontent;
+  console.log(userInput);
+};

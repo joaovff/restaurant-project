@@ -22,8 +22,8 @@
       <ul>
           <li>
           <label for="option1">Create a QR</label>
-          <button id="option1">
-            <a class="no-decoration"> <img src="/images/qr.png" height="30"></a>
+          <button id="option1" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <a class="no-decoration"> <img src="/images/qr.png" class="qr-icon" height="30"></a>
           </button>
         </li>
 
@@ -128,6 +128,29 @@
         </div>
       </div>
     </div>
+    
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Generete a QR Code</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body qr-body">
+        URL:
+        <br>
+        <textarea name="link" id="link" cols="40" rows="3" placeholder="https://example.com/something"></textarea>
+        <img id="QRCodeImage"><br>
+        <div>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
+        <button onclick="QRCode()" class="btn btn-primary">Generate</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     
     {{{body}}}
     <script
