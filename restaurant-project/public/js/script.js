@@ -1,59 +1,67 @@
 // https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event
 document.addEventListener("DOMContentLoaded", () => {
-   console.log("restaurant-project JS imported successfully!");
+  console.log("restaurant-project JS imported successfully!");
 });
 
 function startMap() {
-   const ironhackBCN = {
+  const ironhackBCN = {
+    lat: 38.711798333387264,
+    lng: -9.124110649886294,
+  };
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 15,
+    center: ironhackBCN,
+  });
+  const myMarker = new google.maps.Marker({
+    position: {
       lat: 38.711798333387264,
       lng: -9.124110649886294,
-   };
-   const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 15,
-      center: ironhackBCN,
-   });
-   const myMarker = new google.maps.Marker({
-      position: {
-         lat: 38.711798333387264,
-         lng: -9.124110649886294,
-      },
-      map: map,
-      title: "I'm here",
-   });
+    },
+    map: map,
+    title: "I'm here",
+  });
 }
 
 function toggleFAB(fab) {
-   if (document.querySelector(fab).classList.contains("show")) {
-      document.querySelector(fab).classList.remove("show");
-   } else {
-      document.querySelector(fab).classList.add("show");
-   }
+  if (document.querySelector(fab).classList.contains("show")) {
+    document.querySelector(fab).classList.remove("show");
+  } else {
+    document.querySelector(fab).classList.add("show");
+  }
 }
 
 document.querySelector(".fab .main").addEventListener("click", function () {
-   toggleFAB(".fab");
+  toggleFAB(".fab");
 });
 
 document.querySelectorAll(".fab ul li button").forEach((item) => {
-   item.addEventListener("click", function () {
-      toggleFAB(".fab");
-   });
+  item.addEventListener("click", function () {
+    toggleFAB(".fab");
+  });
 });
 
 startMap();
 
 function showGoodComments() {
-   document.getElementById("showBad").style.display = "none";
-   document.getElementById("showGood").style.display = "block";
+  document.getElementById("showBad").style.display = "none";
+  document.getElementById("showGood").style.display = "block";
 }
 function showBadComments() {
-document.getElementById("showGood").style.display = "none"; 
-   document.getElementById("showBad").style.display = "block";
+  document.getElementById("showGood").style.display = "none";
+  document.getElementById("showBad").style.display = "block";
 }
 
 const myModal = document.getElementById("myModal");
 const myInput = document.getElementById("myInput");
 
 myModal.addEventListener("shown.bs.modal", () => {
-   myInput.focus();
+  myInput.focus();
 });
+
+const qrCode = () => {
+  const inputUsuario = document.querySelector("textarea").value;
+  const GoogleChartAPI =
+    "https://chart.googleapis.com/chart?cht=qr&chs=500x500&chld=H&chl=";
+  const conteudoQRCode = GoogleChartAPI + encodeURIComponent(inputUsuario);
+  document.querySelector("#QRCodeImage").src = conteudoQRCode;
+};

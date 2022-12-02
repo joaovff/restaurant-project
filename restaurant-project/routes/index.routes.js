@@ -19,7 +19,7 @@ router.post("/send-mail", async (req, res, next) => {
     from: "noreplay@idea.pt",
     to: "books@idea.pt",
     cc: "owner@idea.pt",
-    subject: `Reservation for:${date},${time}`,
+    subject: `Reservation for: ${date}, ${time}`,
     text: `
     Name: ${name},
     Email: ${email},
