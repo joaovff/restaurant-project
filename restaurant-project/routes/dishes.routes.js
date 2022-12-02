@@ -86,7 +86,7 @@ router.post("/dishes/:id", async (req, res, next) => {
       {
         $push: {
           "rating.stars": stars,
-          "rating.comment": comments,
+          "rating.comments": comments,
         },
       },
       { new: true }

@@ -47,7 +47,7 @@ function showGoodComments() {
    document.getElementById("showGood").style.display = "block";
 }
 function showBadComments() {
-   document.getElementById("showGood").style.display = "none";
+document.getElementById("showGood").style.display = "none"; 
    document.getElementById("showBad").style.display = "block";
 }
 
