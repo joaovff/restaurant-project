@@ -1,4 +1,3 @@
-// https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event
 document.addEventListener("DOMContentLoaded", () => {
   console.log("restaurant-project JS imported successfully!");
 });
@@ -58,10 +57,3 @@ myModal.addEventListener("shown.bs.modal", () => {
   myInput.focus();
 });
 
-const qrCode = () => {
-  const inputUsuario = document.querySelector("textarea").value;
-  const GoogleChartAPI =
-    "https://chart.googleapis.com/chart?cht=qr&chs=500x500&chld=H&chl=";
-  const conteudoQRCode = GoogleChartAPI + encodeURIComponent(inputUsuario);
-  document.querySelector("#QRCodeImage").src = conteudoQRCode;
-};
