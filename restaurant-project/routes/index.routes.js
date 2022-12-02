@@ -7,7 +7,7 @@ const nodemailer = require("nodemailer");
 router.post("/send-mail", async (req, res, next) => {
   const { name, email, date, people, time } = req.body;
 
-  let transport = nodemailer.createTransport({
+  const transport = nodemailer.createTransport({
     host: "smtp.mailtrap.io",
     port: 2525,
     auth: {
@@ -15,11 +15,17 @@ router.post("/send-mail", async (req, res, next) => {
       pass: "1a97c4d3122f37",
     },
   });
-  let message = {
+  const message = {
     from: "noreplay@idea.pt",
     to: "books@idea.pt",
+    cc: "owner@idea.pt",
     subject: `Reservation for:${date},${time}`,
-    text: `Name: ${name}, Email: ${email}, Table for: ${people} Date:${date}, Time:${time}`,
+    text: `
+    Name: ${name},
+    Email: ${email},
+    Table for: ${people},
+    Date: ${date},
+    Time: ${time}`,
     html: "<p>HTML version of the message</p>",
   };
 
