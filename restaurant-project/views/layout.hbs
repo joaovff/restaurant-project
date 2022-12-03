@@ -1,163 +1,233 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>IDEA Restaurant</title>
-    <link rel="icon" type="image/x-icon" href="/images/idea_gold.png">
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>IDEA Restaurant</title>
+      <link rel="icon" type="image/x-icon" href="/images/idea_gold.png" />
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+         crossorigin="anonymous"
+      />
+      <link rel="stylesheet" href="/stylesheets/style.css" />
+   </head>
 
-  <body>
-   {{>header passThisToView = user}}
-    <div class="fab">
-      <button class="main">
-      </button>
-      <ul>
-          <li>
-          <label for="option1">Create a QR</label>
-          <button id="option1" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            <a class="no-decoration"> <img src="/images/qr.png" class="qr-icon" height="30"></a>
-          </button>
-        </li>
-
-        <li>
-          <label for="option2">Get in touch</label>
-          <button id="option2">
-            <a class="no-decoration" href="tel:+3519999999">📞</a>
-          </button>
-        </li>
-
-        <li>
-          <label for="option3">Book a table</label>
-          <button
-            id="option3"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            📑
-          </button>
-        </li>
-
-      
-      </ul>
-    </div>
-
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Book a table</h1>
+   <body>
+      <nav class="navbar navbar-expand-lg bg-trasnparent">
+         <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img
+                  src="/images/idea_gold.png"
+                  height="50"
+               /></a>
             <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form
-              action="/send-mail"
-              method="post"
+               class="navbar-toggler"
+               type="button"
+               data-bs-toggle="collapse"
+               data-bs-target="#navbarNavAltMarkup"
+               aria-controls="navbarNavAltMarkup"
+               aria-expanded="false"
+               aria-label="Toggle navigation"
+               style="background-color: #fec634;"
             >
-              Name:<br />
-              <input type="text" name="name" /><br />
-              Email:<br />
-              <input type="text" name="email" /><br />
-              Table for:
-              <br />
-              <input type="number" name="people" min="1" max="10" />
-              <br />
-              Phone:
-              <br />
-              <input type="tel" name="phone" /><br />
-              Date:
-              <br />
-              <input type="date" name="date" /><br />
-              Time:
-              <br />
-              <select class="time" name="time">
-                <option></option>
-                <option value="19:00">18:30</option>
-                <option value="19:00">18:45</option>
-                <option value="19:00">19:00</option>
-                <option value="19:00">19:00</option>
-                <option value="19:15">19:15</option>
-                <option value="19:30">19:30</option>
-                <option value="19:45">19:45</option>
-                <option value="20:00">20:00</option>
-                <option value="20:15">20:15</option>
-                <option value="20:30">20:30</option>
-                <option value="20:45">20:45</option>
-                <option value="21:00">21:00</option>
-                <option value="21:15">21:15</option>
-                <option value="21:30">21:30</option>
+               <span
+                  class="navbar-toggler-icon navbar-light"
+                  style="background-color: #fec634;"
+               ></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+               <div class="navbar-nav">
+                  <a class="nav-link" aria-current="page" href="/">Home</a>
+                  {{#if user}}
+                     <a class="nav-link" href="/auth/logout">Logout</a>
+                     <a class="nav-link" href="/dishes/create">Create Dish</a>
+                     <a class="nav-link" href="/auth/signup">Signup</a>
+                  {{else}}
+                     <a class="nav-link" href="/auth/login">Login</a>
+                  {{/if}}
+               </div>
+            </div>
+         </div>
+      </nav>
+      <div class="fab">
+         <button class="main">
+         </button>
+         <ul>
+            <li>
+               <label for="option1">Create a QR</label>
+               <button
+                  id="option1"
+                  class="btn btn-primary"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+               >
+                  <a class="no-decoration">
+                     <img
+                        src="/images/qr.png"
+                        class="qr-icon"
+                        height="30"
+                     /></a>
+               </button>
+            </li>
 
-              </select>
-              <br />
-              <button
-                type="button"
-                class="btn btn-secondary send-btn"
-                data-bs-dismiss="modal"
-              >Close</button>
-              <button type="submit" class="btn btn-primary table-submit">Send</button>
-            </form>
-          </div>
-          <div class="modal-footer">
+            <li>
+               <label for="option2">Get in touch</label>
+               <button id="option2">
+                  <a class="no-decoration" href="tel:+3519999999">📞</a>
+               </button>
+            </li>
 
-          </div>
-        </div>
-      </div>
-    </div>
-    
+            <li>
+               <label for="option3">Book a table</label>
+               <button
+                  id="option3"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+               >
+                  📑
+               </button>
+            </li>
 
-<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Generete a QR Code</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </ul>
       </div>
-      <div class="modal-body qr-body">
-        URL:
-        <br>
-        <textarea name="link" id="link" cols="40" rows="3" placeholder="https://example.com/something"></textarea>
-        <img id="QRCodeImage"><br>
-        <div>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Dismiss</button>
-        <button onclick="QRCode()" class="btn btn-primary table-submit">Generate</button>
-        </div>
+
+      <!-- Modal -->
+      <div
+         class="modal fade"
+         id="exampleModal"
+         tabindex="-1"
+         aria-labelledby="exampleModalLabel"
+         aria-hidden="true"
+      >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Book a
+                     table</h1>
+                  <button
+                     type="button"
+                     class="btn-close"
+                     data-bs-dismiss="modal"
+                     aria-label="Close"
+                  ></button>
+               </div>
+               <div class="modal-body">
+                  <form action="/send-mail" method="post">
+                     Name:<br />
+                     <input type="text" name="name" /><br />
+                     Email:<br />
+                     <input type="text" name="email" /><br />
+                     Table for:
+                     <br />
+                     <input type="number" name="people" min="1" max="10" />
+                     <br />
+                     Phone:
+                     <br />
+                     <input type="tel" name="phone" /><br />
+                     Date:
+                     <br />
+                     <input type="date" name="date" /><br />
+                     Time:
+                     <br />
+                     <select class="time" name="time">
+                        <option></option>
+                        <option value="19:00">18:30</option>
+                        <option value="19:00">18:45</option>
+                        <option value="19:00">19:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="19:15">19:15</option>
+                        <option value="19:30">19:30</option>
+                        <option value="19:45">19:45</option>
+                        <option value="20:00">20:00</option>
+                        <option value="20:15">20:15</option>
+                        <option value="20:30">20:30</option>
+                        <option value="20:45">20:45</option>
+                        <option value="21:00">21:00</option>
+                        <option value="21:15">21:15</option>
+                        <option value="21:30">21:30</option>
+
+                     </select>
+                     <br />
+                     <button
+                        type="button"
+                        class="btn btn-secondary send-btn"
+                        data-bs-dismiss="modal"
+                     >Close</button>
+                     <button
+                        type="submit"
+                        class="btn btn-primary table-submit"
+                     >Send</button>
+                  </form>
+               </div>
+               <div class="modal-footer">
+
+               </div>
+            </div>
+         </div>
       </div>
-    </div>
-  </div>
-</div>
-    
-    {{{body}}}
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQp3IpfS9dQ2dQ2SGB07jL7vEK7h-40xU"
-    ></script>
-    <script
-      async
-      defer
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-    <script src="/js/script.js"></script>
-  </body>
+
+      <!-- Modal -->
+      <div
+         class="modal fade"
+         id="staticBackdrop"
+         data-bs-backdrop="static"
+         data-bs-keyboard="false"
+         tabindex="-1"
+         aria-labelledby="staticBackdropLabel"
+         aria-hidden="true"
+      >
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Generete
+                     a QR Code</h1>
+                  <button
+                     type="button"
+                     class="btn-close"
+                     data-bs-dismiss="modal"
+                     aria-label="Close"
+                  ></button>
+               </div>
+               <div class="modal-body qr-body">
+                  URL:
+                  <br />
+                  <textarea
+                     name="link"
+                     id="link"
+                     cols="40"
+                     rows="3"
+                     placeholder="https://example.com/something"
+                  ></textarea>
+                  <img id="QRCodeImage" /><br />
+                  <div>
+                     <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                     >Dismiss</button>
+                     <button
+                        onclick="QRCode()"
+                        class="btn btn-primary table-submit"
+                     >Generate</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      {{{body}}}
+      <script
+         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQp3IpfS9dQ2dQ2SGB07jL7vEK7h-40xU"
+      ></script>
+      <script
+         async
+         defer
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+         crossorigin="anonymous"
+      ></script>
+      <script src="/js/script.js"></script>
+   </body>
 
 </html>

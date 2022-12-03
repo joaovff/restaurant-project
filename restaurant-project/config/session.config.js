@@ -1,6 +1,7 @@
 const session = require("express-session");
 const MongooseStore = require("connect-mongo");
 const mongoose = require("mongoose");
+const bindUser = require("../middleware/bind-user");
 
 module.exports = (app) => {
   app.set("trust proxy", 1);
@@ -21,4 +22,5 @@ module.exports = (app) => {
       }),
     })
   );
+  app.use(bindUser)
 };
