@@ -101,7 +101,8 @@ body::-webkit-scrollbar-thumb {
 address {
   display: flex;
   justify-content: center;
-  margin-top: 10%;
+  align-items: center;
+  flex-direction: column;
   color: white;
   font-weight: 200;
   font-size: 1.1rem;
@@ -297,4 +298,15 @@ address {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.opening-hours {
+  margin: 1%;
+  height: 90%;
+  width: 500px;
+  color: white;
+  font-weight: 200;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
 }

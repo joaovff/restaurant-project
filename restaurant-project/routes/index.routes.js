@@ -5,7 +5,7 @@ const { all } = require("./dishes.routes");
 const nodemailer = require("nodemailer");
 
 router.post("/send-mail", async (req, res, next) => {
-  const { name, email, date, people, time } = req.body;
+  const { name, email, date, people, time, phone } = req.body;
 
   const transport = nodemailer.createTransport({
     host: "smtp.mailtrap.io",
@@ -23,6 +23,7 @@ router.post("/send-mail", async (req, res, next) => {
     text: `
     Name: ${name},
     Email: ${email},
+    Phone: ${phone},
     Table for: ${people},
     Date: ${date},
     Time: ${time}`,
