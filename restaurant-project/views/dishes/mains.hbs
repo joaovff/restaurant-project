@@ -4,7 +4,9 @@
       <h3>{{name}}</h3>
       <a href="/dishes/{{_id}}"><img src="{{image}}" width="250" /></a>
       <p>{{ingredients}}</p>
+      {{#if @root.user}}
       <a href="/dishes/{{_id}}/edit">Edit Dish</a>
+      {{/if}}
     </div>
   {{/each}}
 
