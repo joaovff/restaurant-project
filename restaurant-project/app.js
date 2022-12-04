@@ -34,7 +34,9 @@ app.use("/auth", authRoutes);
 const dishesRoutes = require("./routes/dishes.routes");
 app.use("/", dishesRoutes);
 
-require("./error-handling")(app);
+const managerRoutes = require("./routes/manager.routes");
+app.use("/", managerRoutes);
 
+require("./error-handling")(app);
 
 module.exports = app;

@@ -53,7 +53,6 @@ function showBadComments() {
 const myModal = document.getElementById("myModal");
 const myInput = document.getElementById("myInput");
 
-
 const QRCode = () => {
   const userInput = document.getElementById("link").value;
   const GoogleChartAPI =
@@ -62,3 +61,4 @@ const QRCode = () => {
   document.querySelector("#QRCodeImage").src = QRcontent;
   console.log(userInput);
 };
+

@@ -80,13 +80,14 @@ router.get("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
 router.post("/dishes/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { stars, comments } = req.body;
+    const { stars, goodComments, badComments } = req.body;
     const postReview = await Dish.findByIdAndUpdate(
       id,
       {
         $push: {
           "rating.stars": stars,
-          "rating.comments": comments,
+          "rating.goodComments": goodComments,
+          "rating.badComments": badComments,
         },
       },
       { new: true }
