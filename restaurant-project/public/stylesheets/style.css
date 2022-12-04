@@ -362,5 +362,12 @@ address {
   background-color: #fec634;
   font-size: 1.4rem;
   color: #000000;
+}
 
+.cards-type {
+  margin-top: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }

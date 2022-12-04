@@ -1,11 +1,15 @@
-<div>
+  <h3>Get off to a good start</h3>
+<div class="cards-type">
   {{#each dish}}
-    <div>
-      <h3>{{name}}</h3>
-      <a href="/dishes/{{_id}}"><img src="{{image}}" width="250" /></a>
-      <p>{{ingredients}}</p>
+    <div class="card" style="width: 18rem;">
+      <img src={{image}} class="card-img-top img-thumbnail" />
+      <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">{{ingredients}}</p>
+        <a href="/dishes/{{_id}}" class="btn btn-primary"></a>
+      </div>
       {{#if @root.user}}
-      <a href="/dishes/{{_id}}/edit">Edit Dish</a>
+        <a href="/dishes/{{_id}}/edit">Edit Dish</a>
       {{/if}}
     </div>
   {{/each}}
