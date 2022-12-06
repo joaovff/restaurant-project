@@ -6,7 +6,7 @@ const Dish = require("../models/Dish.model");
 
 router.get("/manager", isLoggedIn, async (req, res, next) => {
   const dishes = await Dish.find();
-  res.render("manager/manager-area", { dish: dishes });
+  res.render("manager/manager-area", { dish: dishes, stringDishes: JSON.stringify(dishes) });
 });
 
 

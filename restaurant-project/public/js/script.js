@@ -42,13 +42,8 @@ document.querySelectorAll(".fab ul li button").forEach((item) => {
 
 startMap();
 
-function showGoodComments() {
-  document.getElementById("showBad").style.display = "none";
-  document.getElementById("showGood").style.display = "block";
-}
-function showBadComments() {
-  document.getElementById("showGood").style.display = "none";
-  document.getElementById("showBad").style.display = "block";
+function show() {
+  document.getElementById("show").style.display = "block";
 }
 
 const myModal = document.getElementById("myModal");

@@ -5,52 +5,22 @@
 
   <form class="rate" action="/dishes/{{_id}}" method="post">
     <input type="radio" id="star5" name="stars" value="5" />
-    <label for="star5" title="Awesome!!" onclick="showGoodComments()">5 stars</label>
+    <label for="star5" title="Awesome!!" onclick="show()">5 stars</label>
 
     <input type="radio" id="star4" name="stars" value="4" />
-    <label for="star4" title="Very Good!" onclick="showGoodComments()">4 stars</label>
+    <label for="star4" title="Very Good!" onclick="show()">4 stars</label>
 
     <input type="radio" id="star3" name="stars" value="3" />
-    <label for="star3" title="Ok" onclick="showBadComments()">3 stars</label>
+    <label for="star3" title="Ok" onclick="show()">3 stars</label>
 
     <input type="radio" id="star2" name="stars" value="2" />
-    <label for="star2" title="Bad" onclick="showBadComments()">2 stars</label>
+    <label for="star2" title="Bad" onclick="show()">2 stars</label>
 
     <input type="radio" id="star1" name="stars" value="1" />
-    <label for="star1" title="Very bad!" onclick="showBadComments()">1 star</label>
+    <label for="star1" title="Very bad!" onclick="show()">1 star</label>
     <br />
     <br />
-
-    <select
-      class="form-select"
-      id="showBad"
-      aria-label="Default select example"
-      style="display:none"
-      name="badComments"
-      multiple
-    >
-      <option></option>
-      <option value="Wait time">Wait time</option>
-      <option value="Incorrect temperature">Incorrect temperature</option>
-      <option value="Missing items">Missing items</option>
-      <option value="Bad service">Bad service</option>
-    </select>
-
-    <select
-      class="form-select"
-      id="showGood"
-      aria-label="Default select example"
-      style="display:none"
-      name="goodComments"
-      multiple
-    >
-      <option></option>
-      <option value="Flavor">Flavor</option>
-      <option value="Short waiting time">Short waiting time</option>
-      <option value="Good service">Good Service</option>
-    </select>
-
-    
+   
 
     <br />
     <button type="submit">Submit</button>

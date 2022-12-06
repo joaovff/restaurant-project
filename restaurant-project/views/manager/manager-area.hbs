@@ -8,7 +8,7 @@
 <div class="container">
 <canvas id="myChart" width="400" height="400"></canvas>
 
-<input type="hidden" id="dish" value="{{dish}}">
+<input type="hidden" id="dish" value="{{stringDishes}}">
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -16,17 +16,24 @@
 <script>
 const ctx = document.getElementById("myChart");
 const dish = document.getElementById("dish").value;
-console.log(dish)
+const dish1 = JSON.parse(dish)
 
+console.log(dish1[0])
 
 new Chart(ctx, {
   type: "bar",
   data: {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    labels: dish1.map((item) => {
+      return item.name
+    }),
     datasets: [
       {
-        label: "# of Votes",
-        data: [12, 19, 3, 5, 2, 3],
+        label: "Stars Rating",
+        data: dish1.map((item) => {
+          item.rating.stars.reduce((a, b) => {
+            return a + b
+          }, 0) /item.length
+        }),
         borderWidth: 1,
       },
     ],
