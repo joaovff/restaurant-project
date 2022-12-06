@@ -18,7 +18,7 @@ body{
 header {
   display: flex;
   flex-direction: column;
-  height: 75%;
+  height: 85%;
   justify-content: center;
   background-image: url(/images/bg.jpg);
   background-size: 120%;
@@ -370,4 +370,11 @@ address {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+canvas {
+  border: 1px solid gainsboro;
+  height: 400px;
+  width: 800px;
+  box-shadow: 3px 3px 10px rgba(255, 255, 255, 0.2);
 }

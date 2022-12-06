@@ -1,5 +1,35 @@
 <h1>Manager Area</h1>
 
-    {{#each dish}}
-    {{rating.stars}} {{!-- Working! --}}
-    {{/each}}
+{{#each dish}}
+  {{rating.stars}}
+  {{! Working! }}
+{{/each}}
+
+<div class="container">
+<canvas id="myChart" width="400" height="400"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>

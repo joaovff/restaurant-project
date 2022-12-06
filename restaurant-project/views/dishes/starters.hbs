@@ -2,11 +2,11 @@
 <div class="cards-type">
   {{#each dish}}
     <div class="card" style="width: 18rem;">
-      <img src={{image}} class="card-img-top img-thumbnail" />
+      <img src={{image}} height="350" />
       <div class="card-body">
         <h5 class="card-title">{{title}}</h5>
         <p class="card-text">{{ingredients}}</p>
-        <a href="/dishes/{{_id}}" class="btn btn-primary"></a>
+        <a href="/dishes/{{_id}}" class="btn btn-primary">See details</a>
       </div>
       {{#if @root.user}}
         <a href="/dishes/{{_id}}/edit">Edit Dish</a>

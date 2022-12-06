@@ -26,10 +26,10 @@
       />
     </label><br />
 
+      {{#if errorMessage}}
+        <p class="error">{{errorMessage}}</p>
+      {{/if}}
     <button type="submit" class="login-btn">Login</button>
 
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
   </form>
 </div>

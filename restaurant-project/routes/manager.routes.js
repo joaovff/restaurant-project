@@ -9,4 +9,6 @@ router.get("/manager", isLoggedIn, async (req, res, next) => {
   res.render("manager/manager-area", { dish: dishes });
 });
 
+
+
 module.exports = router;
