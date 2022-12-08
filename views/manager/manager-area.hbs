@@ -13,15 +13,17 @@ const ctx = document.getElementById("myChart");
 const dish = document.getElementById("dish").value;
 const dish1 = JSON.parse(dish)
 
-console.log(dish1)
+
 const ratings = dish1.map((item) => {
          return item.rating.stars
 })
-console.log(typeof ratings[0])
+
+
+
 const stars = ratings.reduce((accumulator, currentValue) => {
-    return accumulator + currentValue.stars
+    return parseInt(accumulator + currentValue)
  }, 0)
-console.log(stars)
+console.log(ratings.average)
 
 new Chart(ctx, {
   type: "bar",
@@ -32,9 +34,7 @@ new Chart(ctx, {
     datasets: [
       {
         label: "Stars Rating",
-        data: dish1.map((item) => {
-          return item.rating.stars
-        }),
+        data: average,
         borderWidth: 1,
       },
     ],
