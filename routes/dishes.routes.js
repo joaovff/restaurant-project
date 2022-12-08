@@ -92,7 +92,6 @@ router.post("/dishes/:id", async (req, res, next) => {
       },
       { new: true }
     );
-    console.log(postReview);
     res.redirect(`/dishes/${id}`);
   } catch (error) {
     next(error);

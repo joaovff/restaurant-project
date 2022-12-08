@@ -1,4 +1,4 @@
-<header class="container">
+{{! <header class="container">
   <h1 class="catchphrase">
     "Contemporary cuisine that takes advantage of the fresh ingredients
     available every day and at every time of the year. All in an intimate and
@@ -47,4 +47,101 @@
     </div>
     <div class="container map" id="map"></div>
   </div>
-</footer>
+</footer> }}
+<div class="index-slider">
+  <div class="arrow l" onclick="prev()">
+    <img src="/images/left_arrow.png" alt="l" />
+  </div>
+  <div class="slide slide-1">
+    <div class="caption">
+      <a href="/dishes/starters" class="index-title">
+      <h3 class="index-title">Starters</h3>
+      </a>
+      <p > <span class="index-description">Get off to a good start!</span></p>
+    </div>
+  </div>
+  <div class="slide slide-2">
+    <div class="caption">
+      <a href="/dishes/mains" class="index-title">
+        <h3 class="index-title">
+          Mains
+        </h3>
+      </a>
+      <p> <span class="index-description">Something...</span></p>
+    </div>
+  </div>
+  <div class="slide slide-3">
+    <div class="caption">
+      <a href="/dishes/desserts" class="index-title">
+      <h3 class="index-title">Desserts</h3>
+      </a>
+      <p><span class="index-description">Something...</span></p>
+    </div>
+  </div>
+  <div class="arrow r" onclick="next()">
+    <img src="/images/right_arrow.png" alt="r" />
+  </div>
+</div>
+
+
+<script>
+  let slide = document.querySelectorAll(".slide");
+  let current = 0;
+
+function cls() {
+  for (let i = 0; i < slide.length; i++) {
+    slide[i].style.display = "none";
+  }
+}
+
+function next() {
+  cls();
+  if (current === slide.length - 1) current = -1;
+  current++;
+
+  slide[current].style.display = "block";
+  slide[current].style.opacity = 0.4;
+
+  let x = 0.4;
+  let intX = setInterval(function () {
+    x += 0.1;
+    slide[current].style.opacity = x;
+    if (x >= 1) {
+      clearInterval(intX);
+      x = 0.4;
+    }
+  }, 100);
+}
+
+function prev() {
+  cls();
+  if (current === 0) current = slide.length;
+  current--;
+
+  slide[current].style.display = "block";
+  slide[current].style.opacity = 0.4;
+
+  let x = 0.4;
+  let intX = setInterval(function () {
+    x += 0.1;
+    slide[current].style.opacity = x;
+    if (x >= 1) {
+      clearInterval(intX);
+      x = 0.4;
+    }
+  }, 100);
+}
+
+function start() {
+  cls();
+  slide[current].style.display = "block";
+}
+start();
+
+const preloaderWrapper = document.querySelector('.preloader-wrapper');
+
+window.addEventListener('load', function() {
+    // preloaderWrapper.classList.add('fade-out-animation');
+});
+
+</script>

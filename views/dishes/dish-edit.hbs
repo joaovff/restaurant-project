@@ -1,4 +1,4 @@
-<h2>Edit the dish: {{name}}</h2>
+<h2 class="first-element">Edit the dish: {{name}}</h2>
 
 <form action="/dishes/{{_id}}/edit" method="post" enctype="multipart/form-data">
   <label>Name
@@ -18,7 +18,7 @@
   <label>
     Type
     <select name="type" id="type" required>
-      <option selected>-Select the type-</option>
+      <option disabled selected></option>
       <option value="starter">Starter</option>
       <option value="main">Main</option>
       <option value="dessert">Dessert</option>
