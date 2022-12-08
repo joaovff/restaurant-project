@@ -13,6 +13,16 @@ const ctx = document.getElementById("myChart");
 const dish = document.getElementById("dish").value;
 const dish1 = JSON.parse(dish)
 
+console.log(dish1)
+const ratings = dish1.map((item) => {
+         return item.rating.stars
+})
+console.log(typeof ratings[0])
+const stars = ratings.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue.stars
+ }, 0)
+console.log(stars)
+
 new Chart(ctx, {
   type: "bar",
   data: {
