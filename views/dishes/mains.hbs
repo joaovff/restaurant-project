@@ -1,5 +1,5 @@
 <div class="starters">
-  <div class="cards-type">
+  <div class="cards-type margin">
     {{#each dish}}
       <div class="card" style="width: 18rem;">
         <img src={{image}} height="350" />
@@ -7,10 +7,13 @@
           <h5 class="card-title">{{name}}</h5>
           <p class="card-text">{{ingredients}}</p>
           <a href="/dishes/{{_id}}" class="btn btn-primary">See details</a>
+
+          {{#if @root.user}}
+            <br />
+            <br />
+            <a href="/dishes/{{_id}}/edit">Edit Dish</a>
+          {{/if}}
         </div>
-        {{#if @root.user}}
-          <a href="/dishes/{{_id}}/edit">Edit Dish</a>
-        {{/if}}
       </div>
     {{/each}}
   </div>
