@@ -1,8 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("restaurant-project JS imported successfully!");
-});
-
-function startMap() {
+/* function startMap() {
   const ironhackBCN = {
     lat: 38.711798333387264,
     lng: -9.124110649886294,
@@ -19,7 +15,7 @@ function startMap() {
     map: map,
     title: "I'm here",
   });
-}
+} */
 
 function toggleFAB(fab) {
   if (document.querySelector(fab).classList.contains("show")) {
@@ -39,7 +35,7 @@ document.querySelectorAll(".fab ul li button").forEach((item) => {
   });
 });
 
-startMap();
+//startMap();
 
 function show() {
   document.getElementById("show").style.display = "block";
@@ -54,7 +50,6 @@ const QRCode = () => {
     "https://chart.googleapis.com/chart?cht=qr&chs=300x300&chld=H&chl=";
   const QRcontent = GoogleChartAPI + encodeURIComponent(userInput);
   document.querySelector("#QRCodeImage").src = QRcontent;
-  console.log(userInput);
 };
 
 function sentReview() {
