@@ -124,13 +124,13 @@ Review review model
 <br>
 
 ## Packages
-  Express, <br>
-  Express-Session,<br>
-  Mongoose,<br>
-  Connect-Mongo,<br>
+  Express, 
+  Express-Session,
+  Mongoose,
+  Connect-Mongo,
   Chart.js
-  Bcryptjs,<br>
-  Nodemailer,<br>
+  Bcryptjs,
+  Nodemailer,
   
 <br>
 
