@@ -507,6 +507,13 @@ canvas {
 .nav-link {
   text-shadow: 2px 2px black;
 }
+.nav-link:hover {
+  position: relative;
+  top: -2px;
+  color: white;
+  box-shadow: 0 3px 8px #fec534;
+
+}
 
 .submit-stars {
   text-align: center;
@@ -523,4 +530,9 @@ canvas {
   top: -1px;
   background-color: #000000;
   color: #fff;
+}
+
+.manager-title {
+  margin-top: 100px;
+  text-align: center;
 }
