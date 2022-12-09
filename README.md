@@ -4,7 +4,7 @@ restaurant-project
 
 ## Description
 
-Display a digital Restaurant menu, listing every dish. Make the owner a special Login and customers just create an user without login to make review.
+Display a digital Restaurant menu, listing every dish. Make the owner a special login to create new dishes, edit and see the datas about the dish(rating average).
 Have a page to review every dish with stars and then a pre-made comment to select
 
 <br>
@@ -47,43 +47,31 @@ Owner model
 
 ```javascript
 {
-  name: String,
-  email: {
-    type: String,
-    unique: true,
-    required: true
+    username: {
+      type: String,
+      required: false,
+      unique: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+      lowercase: true,
+      match: [
+        /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+        "Please provide a valid email.",
+      ],
+    },
+    password: {
+      type: String,
+      required: [true, "Password is required"],
+    },
   },
-  match: [
-            /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-            "Please provide a valid email.",
-         ],
-
-  passwordHash: {
-         type: String,
-         required: [true, "Password is required."],
-      },
-  ownerIdSecret: String // how to add a word/keyword to identify the owner signup
-
-}
-
-```
-
-Customer review model
-
-```javascript
-{
-  name: {
-    type: String,
-    unique: true
+  {
+    timestamps: true,
   }
-  email: {
-    type: String,
-    unique: true,
-    required: false
-  },
-  stars: Number
-  comment: [Number]
-}
 
 ```
 
@@ -91,29 +79,58 @@ Dishes model
 
 ```javascript
 {
-  dishId: String,
-  picture_url: String,
-  ingredients: [String],
-  alergenics: [String], 
-  stars: [{ type: Schema.Types.ObjectId, ref: "stars" }], // only the review stars
-  comment: [{ type: Schema.Types.ObjectId, ref: "comment" }] // only the review comments
-
+      name: String,
+      image: String,
+      ingredients: String,
+      type: {
+         type: String,
+         enum: ["starter", "main", "dessert"],
+      },
+      price: Number,
+      rating: [
+         {
+            type: Schema.Types.ObjectId,
+            ref: "Rating",
+         },
+      ],
+   },
+   {
+      timestamps: true,
 }
+
+Review review model
+
+```javascript
+   {
+      stars: Number,
+      average: Number,
+      goodComments: [String],
+      badComments: [String],
+   },
+   {
+      timestamps: true,
+   }
+
+```
+
+
 
 ```
 
 <br>
 
 ## API's
-  Google Maps API
-  	QR API
+  QR API
 <br>
 
 ## Packages
-  epxress, express-session
-  mongoose, connect-mongo
-  ironlauncher
-  bcryptjs
+  Express, <br>
+  Express-Session,<br>
+  Mongoose,<br>
+  Connect-Mongo,<br>
+  Chart.js
+  Bcryptjs,<br>
+  Nodemailer,<br>
   
 <br>
 
@@ -129,7 +146,8 @@ Dishes model
 
 The url to your repository and to your deployed project
 
-[Repository Link]()
+[Repository Link]
+https://github.com/joaovff/restaurant-project
 
 [Deploy Link]()
 
@@ -142,6 +160,7 @@ The url to your presentation slides
 
 ### Contributors
 
+João Silva - [`<github-username>`](https://github.com/joaovff) - [`<linkedin-profile-link>`](https://www.linkedin.com/in/joao-figueiredo-silva/)
+
 António Cortez - [`<github-username>`](https://github.com/AAMCortez) - [`<linkedin-profile-link>`](https://www.linkedin.com/in/antónio-cortez/)
 
-João Silve - [`<github-username>`](https://github.com/joaovff) - [`<linkedin-profile-link>`](https://www.linkedin.com/in/joao-figueiredo-silva/)
