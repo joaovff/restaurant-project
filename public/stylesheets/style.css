@@ -477,9 +477,10 @@ canvas {
   padding-bottom: 30%;
 }
 
+
 .card {
   color: white;
-  margin-top: 3%;
+  margin-top: 8%;
   background: rgb(0, 0, 0, 0.5);
   margin-left: 2%;
   z-index: 1;
@@ -493,4 +494,11 @@ canvas {
 
 .first-element {
   margin-top: 5%;
+}
+
+.sent-review {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

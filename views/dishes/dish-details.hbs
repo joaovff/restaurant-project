@@ -1,16 +1,16 @@
-<div class="testing container">
+<div class="testing container first-element">
   {{name}}
   <img src="{{image}}" alt="" height="600" />
   {{ingredients}}
   <br>
    {{price}} €
 
-  <form class="rate" action="/dishes/{{_id}}" method="post">
+  <form class="rate" action="/dishes/{{_id}}" method="post" id="form-stars">
     <input type="radio" id="star5" name="stars" value="5" />
-    <label for="star5" title="Awesome!!" onclick="show()">5 stars</label>
+    <label for="star5" title="Awesome!" onclick="show()">5 stars</label>
 
     <input type="radio" id="star4" name="stars" value="4" />
-    <label for="star4" title="Very Good!" onclick="show()">4 stars</label>
+    <label for="star4" title="Good" onclick="show()">4 stars</label>
 
     <input type="radio" id="star3" name="stars" value="3" />
     <label for="star3" title="Ok" onclick="show()">3 stars</label>
@@ -25,7 +25,12 @@
    
 
     <br />
-    <button type="submit">Submit</button>
+    <button type="submit" onclick="sentReview()">Submit</button>
   </form>
+
+  <div id="sent-review" class="sent-review" style="display: none;">
+    <img src="/images/check.png" height="40" alt="">
+    <h2>Review sent!</h2>
+  </div>
 
 </div>

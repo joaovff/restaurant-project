@@ -1,40 +1,32 @@
-<h1>Manager Area</h1>
-
 <div class="container">
-<canvas id="myChart" width="400" height="400"></canvas>
+<h1 class="first-element">Manager Area</h1>
 
-<input type="hidden" id="dish" value="{{stringDishes}}">
+
+<canvas id="myChart"></canvas>
+
+<input type="hidden" id="dish" value="{{dish}}">
+
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
 const ctx = document.getElementById("myChart");
+
 const dish = document.getElementById("dish").value;
-const dish1 = JSON.parse(dish)
-
-
-const ratings = dish1.map((item) => {
-         return item.rating.stars
-})
-
-
-
-const stars = ratings.reduce((accumulator, currentValue) => {
-    return parseInt(accumulator + currentValue)
- }, 0)
-console.log(ratings.average)
+const dish1 = JSON.parse(dish);
 
 new Chart(ctx, {
   type: "bar",
   data: {
-    labels: dish1.map((item) => {
-      return item.name
-    }),
+      labels: dish1.map((item) => {
+  return item.name
+}),
     datasets: [
       {
-        label: "Stars Rating",
-        data: average,
+        label: "Ratings Average",
+        data: dish1.map((item) => {
+          return item.average
+        }),
         borderWidth: 1,
       },
     ],
