@@ -7,12 +7,6 @@
           <h5 class="card-title">{{name}}</h5>
           <p class="card-text">{{ingredients}}</p>
           <a href="/dishes/{{_id}}" class="btn btn-primary">See details</a>
-
-          {{#if @root.user}}
-            <br />
-            <br />
-            <a href="/dishes/{{_id}}/edit">Edit Dish</a>
-          {{/if}}
         </div>
       </div>
     {{/each}}
