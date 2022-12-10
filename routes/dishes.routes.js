@@ -5,6 +5,7 @@ const Rating = require("../models/Rating.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const fileUploader = require("../config/cloudinary.config");
+const { none } = require("../config/cloudinary.config");
 
 router.get("/dishes/create", isLoggedIn, (req, res, next) => {
    try {
@@ -71,12 +72,11 @@ router.get("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
 router.post("/dishes/:id", async (req, res, next) => {
    try {
       const { id } = req.params;
-      const { stars, goodComments, badComments } = req.body;
-      const review = { stars, goodComments, badComments };
-      const postReview = await Rating.create(review);
-
+      const { stars, comment } = req.body;
+      const review = { stars, comment};
+      const postReview = await Rating.create(review);      
       await Dish.findByIdAndUpdate(id, {
-         $push: { rating: postReview._id },
+        $push: { rating: postReview._id },
       });
    } catch (error) {
       next(error);

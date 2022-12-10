@@ -4,8 +4,7 @@ const ratingSchema = new Schema(
    {
       stars: Number,
       average: Number,
-      goodComments: [String],
-      badComments: [String],
+      comment: String,
    },
    {
       timestamps: true,

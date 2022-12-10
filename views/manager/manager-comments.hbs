@@ -1,0 +1,19 @@
+<div class="starters">
+  <div class="cards-type margin">
+    {{#each dish}}
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{comment}}</h5>
+          <a href="/dishes/{{_id}}" class="btn btn-primary">See details</a>
+            <br />
+            <br />
+            <a href="/dishes/{{_id}}/edit">Edit Dish</a>
+          {{/if}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+
+<input type="hidden" id="dish" value="{{dish}}">
