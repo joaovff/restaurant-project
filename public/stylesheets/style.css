@@ -14,18 +14,6 @@ body{
   color: white;
 }
 
-/* header {
-  display: flex;
-  flex-direction: column;
-  height: 85%;
-  justify-content: center;
-  background-image: url(/images/bg.jpg);
-  background-size: 120%;
-  background-position-x: 70% ;
-  background-position-y: 40% ;
-  background-repeat: no-repeat;
-} */
-
 .scroll-div {
   display: flex;
   justify-content: center;
