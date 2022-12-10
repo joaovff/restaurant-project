@@ -32,7 +32,7 @@ router.get("/dishes/desserts", async (req, res, next) => {
    }
 });
 
-router.get("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
+ router.get("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
    try {
       const { id } = req.params;
       const dish = await Dish.findById(id);
@@ -40,7 +40,7 @@ router.get("/dishes/:id/edit", isLoggedIn, async (req, res, next) => {
    } catch (error) {
       next(error);
    }
-});
+}); 
 
 router.post("/dishes/:id", async (req, res, next) => {
    try {
