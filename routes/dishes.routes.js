@@ -7,33 +7,6 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const fileUploader = require("../config/cloudinary.config");
 const { none } = require("../config/cloudinary.config");
 
-router.get("/dishes/create", isLoggedIn, (req, res, next) => {
-   try {
-      res.render("dishes/dish-create");
-   } catch (error) {
-      next(error);
-   }
-});
-
-router.post(
-   "/dishes/create",
-   fileUploader.single("image"),
-   isLoggedIn,
-   async (req, res, next) => {
-      try {
-         const { name, image, ingredients, type, price } = req.body;
-         const dish = { name, ingredients, type, price };
-         if (req.file) {
-            dish.image = req.file.path;
-         }
-         const newDish = await Dish.create(dish);
-         res.redirect("/");
-      } catch (error) {
-         next(error);
-      }
-   }
-);
-
 router.get("/dishes/starters", async (req, res, next) => {
    try {
       const starterDishes = await Dish.find({ type: "starter" });
@@ -83,25 +56,6 @@ router.post("/dishes/:id", async (req, res, next) => {
    }
 });
 
-router.post(
-   "/dishes/:id/edit",
-   fileUploader.single("image"),
-   isLoggedIn,
-   async (req, res, next) => {
-      try {
-         const { id } = req.params;
-         const { name, ingredients, type, price } = req.body;
-         const item = { name, ingredients, type, price };
-         if (req.file) {
-            item.image = req.file.path;
-         }
-         const updateDish = await Dish.findByIdAndUpdate(id, item);
-         res.redirect(`/`);
-      } catch (error) {
-         next(error);
-      }
-   }
-);
 
 router.post("/dishes/:id/delete", isLoggedIn, async (req, res, next) => {
    try {
