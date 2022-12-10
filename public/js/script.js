@@ -56,3 +56,4 @@ function sentReview() {
   document.getElementById("form-stars").style.display = "none";
   document.getElementById("sent-review").style.display = "flex";
 }
+

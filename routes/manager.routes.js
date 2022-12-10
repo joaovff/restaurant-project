@@ -6,6 +6,15 @@ const Dish = require("../models/Dish.model");
 const Rating = require("../models/Rating.model");
 const fileUploader = require("../config/cloudinary.config");
 
+router.get("/manager", isLoggedIn, (req, res, next) => {
+  try {
+    const {user} = req.session.currentUser;
+    res.render("manager/manager-index", user);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get("/manager/create", isLoggedIn, (req, res, next) => {
   try {
     res.render("manager/manager-create");
@@ -33,7 +42,7 @@ router.post(
   }
 );
 
-router.get("/manager-stars", isLoggedIn, async (req, res, next) => {
+router.get("/manager/ratings-average", isLoggedIn, async (req, res, next) => {
   const dishes = await Dish.find().populate("rating");
   const myDishes = dishes.map((dish) => {
     const { name, image, ingredients, price } = dish;

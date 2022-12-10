@@ -1,6 +1,3 @@
-
-
-
 <br />
 <br />
 <br />
@@ -18,17 +15,18 @@
       <!-- MAIN TITLE STARTS HERE -->
 
       <div class="main__title">
+        <img src="/images/hello.svg" alt="" />
         <div class="main__greeting">
-          <h1>Edit a dish</h1>
-          <p>Here you can edit any dish</p>
+          <h1>Hello {{user.username}}!</h1>
+          <p>Welcome to your management dashboard!</p>
         </div>
       </div>
 
       <!-- MAIN TITLE ENDS HERE -->
 
       <!-- MAIN CARDS STARTS HERE -->
-      <div class="main__cards margin-to-cards">
-      {{!--   <div class="card">
+      <div class="main__cards">
+        {{!   <div class="card">
           <i class="fa fa-user-o fa-2x text-lightblue" aria-hidden="true"></i>
           <div class="card_inner">
             <p class="text-primary-p">Number of Subscribers</p>
@@ -61,26 +59,12 @@
             <p class="text-primary-p">Number of Likes</p>
             <span class="font-bold text-title">645</span>
           </div>
-        </div> --}}
-  <div class="starters">
-    <div class="cards-type margin">
-    {{#each dish}}
-      <div class="card" style="width: 18rem;">
-        <img src={{image}} height="350" />
-        <div class="card-body">
-          <h5 class="card-title">{{name}}</h5>
-          <p class="card-text">{{ingredients}}</p>
-          <a href="/dishes/{{_id}}/edit" class="btn btn-primary">Edit Dish</a>
-        </div>
-      </div>
-    {{/each}}
-  </div>
-</div>
+        </div> }}
       </div>
       <!-- MAIN CARDS ENDS HERE -->
 
       <!-- CHARTS STARTS HERE -->
-      {{!-- <div class="charts">
+      {{! <div class="charts">
         <div class="charts__left">
           <div class="charts__left__title">
             <div>
@@ -123,7 +107,7 @@
             </div>
           </div>
         </div>
-      </div> --}}
+      </div> }}
       <!-- CHARTS ENDS HERE -->
     </div>
   </main>
@@ -146,8 +130,13 @@
       <div class="sidebar__link active_menu_link">
         <i class="fa fa-home"></i>
       </div>
-      <hr style="color: white;">
-      <h2> <a href="/manager" style="text-decoration: none; color:#ffc100;px;">Management Area</a> </h2>
+      <hr style="color: white;" />
+      <h2>
+        <a
+          href="/manager"
+          style="text-decoration: none; color:#ffc100;"
+        >Management Area</a>
+      </h2>
       <div class="sidebar-link">
         <i class="fa fa-user-secret" aria-hidden="true"></i>
         <a href="/manager/ratings-average">Ratings Average</a>
