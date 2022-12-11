@@ -4,6 +4,7 @@ const Dish = require("../models/Dish.model");
 const { all } = require("./dishes.routes");
 const nodemailer = require("nodemailer");
 
+// Nodemailer (book a table).
 router.post("/send-mail", async (req, res, next) => {
   const { name, email, date, people, time, phone } = req.body;
 
@@ -42,7 +43,7 @@ router.post("/send-mail", async (req, res, next) => {
   });
 });
 
-/* GET home page */
+// Rendering Home page
 router.get("/", async (req, res, next) => {
   try {
     const allDishes = await Dish.find();

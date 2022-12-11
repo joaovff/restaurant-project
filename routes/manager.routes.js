@@ -6,6 +6,7 @@ const Dish = require("../models/Dish.model");
 const Rating = require("../models/Rating.model");
 const fileUploader = require("../config/cloudinary.config");
 
+// Rendering Manager Area Home page
 router.get("/manager", isLoggedIn, (req, res, next) => {
   try {
     const { user } = req.session.currentUser;
@@ -15,6 +16,7 @@ router.get("/manager", isLoggedIn, (req, res, next) => {
   }
 });
 
+// Rendering Dish Create
 router.get("/manager/create", isLoggedIn, (req, res, next) => {
   try {
     res.render("manager/manager-create");
@@ -23,6 +25,7 @@ router.get("/manager/create", isLoggedIn, (req, res, next) => {
   }
 });
 
+// Posting the created dish
 router.post(
   "/manager/create",
   fileUploader.single("image"),
@@ -42,6 +45,7 @@ router.post(
   }
 );
 
+// Rendering the reviews average (canvas)
 router.get("/manager/ratings-average", isLoggedIn, async (req, res, next) => {
   const dishes = await Dish.find().populate("rating");
   const myDishes = dishes.map((dish) => {
@@ -63,15 +67,15 @@ router.get("/manager/ratings-average", isLoggedIn, async (req, res, next) => {
   });
 });
 
+// Rendering the comments 
 router.get("/manager/comments", isLoggedIn, async (req, res, next) => {
   const dishes = await Dish.find().populate("rating");
-  console.log(...dishes);
-
   res.render("manager/manager-comments", {
     dish: JSON.stringify(dishes),
   });
 });
 
+// Rendering the edit dish list
 router.get("/manager/edit", isLoggedIn, async (req, res, next) => {
   try {
     const dishes = await Dish.find();
@@ -81,6 +85,7 @@ router.get("/manager/edit", isLoggedIn, async (req, res, next) => {
   }
 });
 
+// Rendering the dish being edited
 router.get("/manager/edit/:id", isLoggedIn, async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -91,6 +96,7 @@ router.get("/manager/edit/:id", isLoggedIn, async (req, res, next) => {
   }
 });
 
+// Posting the dish update
 router.post(
   "/manager/edit/:id",
   fileUploader.single("image"),
@@ -111,6 +117,7 @@ router.post(
   }
 );
 
+// Post to delete a dish
 router.post("/manager/delete/:id", isLoggedIn, async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -120,4 +127,5 @@ router.post("/manager/delete/:id", isLoggedIn, async (req, res, next) => {
     next(error);
   }
 });
+
 module.exports = router;
