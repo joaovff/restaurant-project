@@ -1,34 +1,70 @@
-<div class="testing">
+
+<div class="container dish-details">
   <h1>{{dish.name}}</h1>
-  <img src="{{dish.image}}" alt="" height="550" />
+  <img src="{{dish.image}}" class="img-fluid" height="550" />
   <p>{{dish.ingredients}}</p>
   <p>{{dish.price}} €</p>
 
-  <form class="rate" action="/dishes/{{dish._id}}" method="post" id="form-stars">
-    <input style="display: none;" type="radio" id="star5" name="stars" value="5" />
+  <form
+    class="rate"
+    class="form-dish-review"
+    action="/dishes/{{dish._id}}"
+    method="post"
+    id="form-stars"
+  >
+    <input
+      style="display: none;"
+      type="radio"
+      id="star5"
+      name="stars"
+      value="5"
+    />
     <label for="star5" title="Awesome!" onclick="show()">5 stars</label>
 
-    <input  style="display: none;" type="radio" id="star4" name="stars" value="4" />
+    <input
+      style="display: none;"
+      type="radio"
+      id="star4"
+      name="stars"
+      value="4"
+    />
     <label for="star4" title="Good" onclick="show()">4 stars</label>
 
-    <input style="display: none;" type="radio" id="star3" name="stars" value="3" />
+    <input
+      style="display: none;"
+      type="radio"
+      id="star3"
+      name="stars"
+      value="3"
+    />
     <label for="star3" title="Ok" onclick="show()">3 stars</label>
 
-    <input style="display: none;" type="radio" id="star2" name="stars" value="2" />
+    <input
+      style="display: none;"
+      type="radio"
+      id="star2"
+      name="stars"
+      value="2"
+    />
+    
     <label for="star2" title="Bad" onclick="show()">2 stars</label>
 
-    <input style="display: none;" type="radio" id="star1" name="stars" value="1" />
+    <input
+      style="display: none;"
+      type="radio"
+      id="star1"
+      name="stars"
+      value="1"
+    />
     <label for="star1" title="Very bad!" onclick="show()">1 star</label>
-  
+
+
+
     <div>
-        <p>this is average: {{average}}</p>
-        <p>reviews: {{length}}</p>
+      <label class="form-label"></label>
+      <input class="form-control" type="text" name="comment" id="" />
     </div>
-    <div>
-
-    <label></label>
-    <input type="text" name="comment" id="">
-
+    <br>
     <button
       type="submit"
       class="submit-stars"
