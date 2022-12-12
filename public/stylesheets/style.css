@@ -684,17 +684,6 @@ main {
   margin: 20px 0;
 }
 
-/* .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 70px;
-  padding: 25px;
-  border-radius: 5px;
-  background: #ffffff;
-  box-shadow: 5px 5px 13px #ededed, -5px -5px 13px #ffffff;
-}
- */
 .card_inner {
   display: flex;
   align-items: center;
@@ -791,44 +780,6 @@ main {
   margin-top: 30px;
 }
 
-/* .card1 {
-  background: #d1ecf1;
-  color: #35a4ba;
-  text-align: center;
-  padding: 25px;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.card2 {
-  background: #d2f9ee;
-  color: #38e1b0;
-  text-align: center;
-  padding: 25px;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.card3 {
-  background: #d6d8d9;
-  color: #3a3e41;
-  text-align: center;
-  padding: 25px;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.card4 {
-  background: #fddcdf;
-  color: #f65a6f;
-  text-align: center;
-  padding: 25px;
-  border-radius: 5px;
-  font-size: 14px;
-} */
-
-/*  SIDEBAR STARTS HERE  */
-
 #sidebar {
   background: #020509;
   grid-area: sidebar;
@@ -844,7 +795,6 @@ main {
   align-items: center;
   color: #f3f4f6;
   margin-bottom: 30px;
-  /* color: #E85B6B; */
 }
 
 .sidebar__img {
@@ -1041,4 +991,8 @@ main {
   padding-top: 0.5rem;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.comments-manager:hover {
+  cursor: default;
 }
