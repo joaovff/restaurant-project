@@ -1,3 +1,10 @@
-
-
 <input type="hidden" id="dish" value="{{dish}}">
+
+<script>
+    const dish = document.getElementById("dish").value;
+    const dish1 = JSON.parse(dish);
+
+    const dish2 = dish1.map((item) => {
+        return item.rating
+    });
+</script>

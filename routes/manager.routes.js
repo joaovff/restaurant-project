@@ -67,7 +67,7 @@ router.get("/manager/ratings-average", isLoggedIn, async (req, res, next) => {
   });
 });
 
-// Rendering the comments 
+// Rendering the comments
 router.get("/manager/comments", isLoggedIn, async (req, res, next) => {
   const dishes = await Dish.find().populate("rating");
   res.render("manager/manager-comments", {

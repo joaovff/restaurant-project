@@ -82,19 +82,19 @@ const dish1 = JSON.parse(dish);
 new Chart(ctx, {
   type: "bar",
   data: {
-      labels: dish1.map((item) => {
-  return item.name
-}),
-    datasets: [
-      {
-        label: "Ratings Average",
-        data: dish1.map((item) => {
-          return item.average
+    labels: dish1.map((item) => {
+        return item.name
         }),
-        borderWidth: 1,
+        datasets: [
+          {
+            label: "Ratings Average",
+            data: dish1.map((item) => {
+              return item.average
+            }),
+            borderWidth: 1,
+          },
+        ],
       },
-    ],
-  },
   options: {
     scales: {
       y: {
