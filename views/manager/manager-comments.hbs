@@ -1,3 +1,19 @@
-
-
 <input type="hidden" id="dish" value="{{dish}}">
+<input type="hidden" id="myDishes" value="{{myDishes}}">
+
+
+
+
+{{#each comments}}
+        <li>
+    {{#each this.rating}}
+    {{#if this.comment}}
+            <ul>{{this.comment}} for this: {{this.rating.dish}}</ul>
+            {{else}}
+            
+     {{/if}}       
+    {{/each}}
+        </li>
+{{/each}}
+
+
