@@ -1186,6 +1186,10 @@ main {
   text-transform: uppercase;
 }
 
+.price-title {
+  padding: 12px;
+}
+
 .text{
   color: #555;
   font-size: 17px;
