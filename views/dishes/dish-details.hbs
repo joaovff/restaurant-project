@@ -1,92 +1,12 @@
-{{!-- <div class="container dish-details">
-  <h1>{{dish.name}}</h1>
-  <img src="{{dish.image}}" class="img-fluid" height="550" />
-  <p>{{dish.ingredients}}</p>
-  <p>{{dish.price}} €</p>
-
-    <p>Average: {{average}}</p>
-    <p>Reviews: {{length}}</p>
-  <form
-    class="rate"
-    class="form-dish-review"
-    action="/dishes/{{dish._id}}"
-    method="post"
-    id="form-stars"
-  >
-    <input
-      style="display: none;"
-      type="radio"
-      id="star5"
-      name="stars"
-      value="5"
-    />
-    <label for="star5" title="Awesome!" onclick="show()">5 stars</label>
-
-    <input
-      style="display: none;"
-      type="radio"
-      id="star4"
-      name="stars"
-      value="4"
-    />
-    <label for="star4" title="Good" onclick="show()">4 stars</label>
-
-    <input
-      style="display: none;"
-      type="radio"
-      id="star3"
-      name="stars"
-      value="3"
-    />
-    <label for="star3" title="Ok" onclick="show()">3 stars</label>
-
-    <input
-      style="display: none;"
-      type="radio"
-      id="star2"
-      name="stars"
-      value="2"
-    />
-
-    <label for="star2" title="Bad" onclick="show()">2 stars</label>
-
-    <input
-      style="display: none;"
-      type="radio"
-      id="star1"
-      name="stars"
-      value="1"
-    />
-    <label for="star1" title="Very bad!" onclick="show()">1 star</label>
-
-    {{!     <div>
-      <label class="form-label"></label>
-      <input class="form-control" type="text" name="comment" id="" />
-    </div> }}
-    <br />
-    <button
-      type="submit"
-      class="submit-stars"
-      onclick="sentReview()"
-    >Submit</button>
-  </form>
-</div>
-
-<div id="sent-review" class="sent-review" style="display: none;">
-  <img src="/images/check.png" height="40" alt="" />
-  <h2>Review sent!</h2>
-</div> --}}
-
-<div class="container-dish">
+<div class="container-dish" style="background-image: url({{dish.image}}); background-size: cover; backdrop-filter: blur(15px);">
   <div class="card-detail">
-    <div class="dishBackground">
+    <div class="dishBackground ">
       <div
         class="gradients"
-        style="background-image: url({{dish.image}}); background-size: cover;"
+        style="background-image: url({{dish.image}}); background-size: cover; background-position-x: 35%; z-index: 9999;"
       >
 
       </div>
-      <a href="#" class="share"> <img src="/images/share.png" width="50" style="margin-right: 5px;"><i class="fas fa-share-alt"></i></a>
     </div>
     <div class="info">
       <div class="dish-name">
@@ -95,7 +15,7 @@
         </div>
       </div>
       <div class="description">
-        <h3 class="title">Ingredients</h3>
+        <h3 class="title">Description</h3>
         <p class="text">{{dish.ingredients}}</p>
       </div>
       <div class="price-container">
@@ -103,7 +23,7 @@
       </div>
 
       <div class="size-container">
-        
+
         <h3 class="title">Reviews</h3>
         <div class="sizes">
           <form
@@ -159,16 +79,18 @@
             />
             <label for="star1" title="Very bad!" onclick="show()">1 star</label>
             <br />
-            
+
             <button
               type="submit"
               class="submit-stars"
               onclick="sentReview()"
             >Submit</button>
           </form>
+
         </div>
       </div>
 
     </div>
   </div>
+
 </div>

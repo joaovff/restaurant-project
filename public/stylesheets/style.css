@@ -1448,5 +1448,11 @@ main {
 
   .container-dish{
       padding: 20px;
+      backdrop-filter: blur(10px);
+
+      }
   }
+
+.container-dish {
+  backdrop-filter: blur(10px);
 }
