@@ -1,9 +1,12 @@
-<div class="container-dish" style="background-image: url({{dish.image}}); background-size: cover; backdrop-filter: blur(15px);">
+<div
+  class="container-dish"
+  style="background-image: url({{dish.image}}); background-size: cover; backdrop-filter: blur(15px);"
+>
   <div class="card-detail">
-    <div class="dishBackground ">
+    <div class="dishBackground">
       <div
         class="gradients"
-        style="background-image: url({{dish.image}}); background-size: cover; background-position-x: 35%; z-index: 9999;"
+        style="background-image: url({{dish.image}}); background-size: cover; background-position-x: 35%;"
       >
 
       </div>
@@ -24,6 +27,7 @@
       <div class="size-container">
 
         <h3 class="title">Reviews</h3>
+            <p class="average">Stars: {{average}} / Reviews: {{length}}</p>
         <div class="sizes">
           <form
             class="rate"

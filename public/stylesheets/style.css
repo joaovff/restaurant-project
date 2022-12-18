@@ -455,6 +455,7 @@ canvas {
 
 .card {
   color: white;
+  display: flex;
   margin-top: 100px;
   background: rgb(0, 0, 0, 0.5);
   margin-left: 2%;
@@ -463,8 +464,8 @@ canvas {
 
 .card:hover {
   position: relative;
-  top: 2px;
-  box-shadow: 2px 2px rgba(245, 245, 245, 0.411);
+  top: -5px;
+  box-shadow: 2px 2px 5px #d9d9d9, -2px -2px 5px #ffffff;
 }
 
 .first-element {
@@ -493,7 +494,7 @@ canvas {
   text-align: center;
   margin-left: 15%;
   padding: 10px 20px 10px 20px;
-  background-color: #ffffff;
+  background-color: #fec534;
   border: 0;
   border-radius: 6px;
 }
@@ -1461,4 +1462,16 @@ main {
 .container-dish {
   background-color: #2175f5;
   backdrop-filter: blur(10px);
+}
+
+.see-details {
+  margin-top: 5%;
+  margin-left: 25%;
+}
+
+.average {
+  padding: 0;
+  margin-bottom: -16px;
+  font-size: 0.9rem;
+  font-weight: 300;
 }
