@@ -119,3 +119,4 @@ function changeHeight(){
 changeHeight();
 
 window.addEventListener('resize', changeHeight);
+

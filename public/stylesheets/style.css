@@ -355,7 +355,7 @@ canvas {
 }
 
 .slide-1 {
-  background: url(/images/bg_.jpg);
+  background: url(/images/starters1.jpg);
 }
 .slide-2 {
   background: url(/images/main.jpg);
@@ -449,7 +449,6 @@ canvas {
   background-image: url(/images/1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;
   padding-bottom: 30%;
 }
 
@@ -1475,3 +1474,4 @@ main {
   font-size: 0.9rem;
   font-weight: 300;
 }
+
