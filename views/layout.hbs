@@ -40,7 +40,28 @@
           <div class="navbar-nav">
             <a class="nav-link" aria-current="page" href="/">Home</a>
             {{#if user}}
-              <a class="nav-link" href="/manager">Manager Area</a>
+              {{! <a class="nav-link" href="/manager">Manager Area</a> }}
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="/manager"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Manager Area
+                </a>
+                <ul class="dropdown-menu dropdown-menu-transparent">
+                  <li><a class="dropdown-item" href="/manager">Homepage</a></li>
+                  <li><a
+                      class="dropdown-item"
+                      href="/manager/ratings-average"
+                    >Ratings Average</a></li>
+                  <li><a class="dropdown-item" href="/manager/create">Create a
+                      dish</a></li>
+                  <li><a class="dropdown-item" href="/manager/edit">Edit a dish</a></li>
+                </ul>
+              </li>
               <a class="nav-link" href="/auth/signup">Signup</a>
               <a class="nav-link" href="/auth/logout">Logout</a>
             {{else}}
@@ -236,7 +257,6 @@
     <div class="cointainer-fluid">
       {{{body}}}
     </div>
-    
 
     <script
       async
