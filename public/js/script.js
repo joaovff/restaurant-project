@@ -27,7 +27,8 @@ const QRCode = () => {
   document.querySelector("#QRCodeImage").src = QRcontent;
 };
 
-function sentReview() {
-  document.getElementById("form-stars").style.display = "none";
-  document.getElementById("sent-review").style.display = "flex";
-}
+const submitBtn = document.getElementById("submitStars");
+
+const showStars = () => {
+  submitBtn.style.display = "flex";
+};

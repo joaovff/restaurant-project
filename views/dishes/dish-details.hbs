@@ -27,7 +27,7 @@
       <div class="size-container">
 
         <h3 class="title">Reviews</h3>
-            <p class="average">Stars: {{average}} / Reviews: {{length}}</p>
+        <p class="average">Stars: {{average}} / Reviews: {{length}}</p>
         <div class="sizes">
           <form
             class="rate"
@@ -43,7 +43,7 @@
               name="stars"
               value="5"
             />
-            <label for="star5" title="Awesome!" onclick="show()">5 stars</label>
+            <label for="star5" title="Awesome!" onclick="showStars()">5 stars</label>
 
             <input
               style="display: none;"
@@ -52,7 +52,7 @@
               name="stars"
               value="4"
             />
-            <label for="star4" title="Good" onclick="show()">4 stars</label>
+            <label for="star4" title="Good" onclick="showStars()">4 stars</label>
 
             <input
               style="display: none;"
@@ -61,7 +61,7 @@
               name="stars"
               value="3"
             />
-            <label for="star3" title="Ok" onclick="show()">3 stars</label>
+            <label for="star3" title="Ok" onclick="showStars()">3 stars</label>
 
             <input
               style="display: none;"
@@ -71,7 +71,7 @@
               value="2"
             />
 
-            <label for="star2" title="Bad" onclick="show()">2 stars</label>
+            <label for="star2" title="Bad" onclick="showStars()">2 stars</label>
 
             <input
               style="display: none;"
@@ -80,13 +80,14 @@
               name="stars"
               value="1"
             />
-            <label for="star1" title="Very bad!" onclick="show()">1 star</label>
+            <label for="star1" title="Very bad!" onclick="showStars()">1 star</label>
             <br />
 
             <button
               type="submit"
               class="submit-stars"
-              onclick="sentReview()"
+              style="display: none;"
+              id="submitStars"
             >Submit</button>
           </form>
 
