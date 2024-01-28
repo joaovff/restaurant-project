@@ -19,5 +19,5 @@ Completed and Deployed
 # To Visit App:
 https://idea-restaurant.cyclic.app/
 
-Login: user@idea.com
+Login: user@idea.com </br>
 Password: User$123
