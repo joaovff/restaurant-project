@@ -31,15 +31,13 @@
       type="number"
       name="price"
       id="price"
-      step="0.01"
+      step="1"
       id="totalAmt"
       value="{{price}}"
     />
   </label>
-
   <button type="submit">Edit</button>
 </form>
-
 <form action="/dishes/{{_id}}/delete" method="post">
   <button type="submit">Delete</button>
 </form>

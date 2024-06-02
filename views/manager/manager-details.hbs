@@ -74,12 +74,13 @@
             />
           </label>
 
-          <button class="btn btn-dark create-btn" type="submit">Edit</button>
+          <div style="display: flex;">
+            <button class="btn btn-dark create-btn" style="margin-right: 10%" type="submit">Edit</button>
         </form>
-        <form action="/manager/delete/{{_id}}" method="post">
-          <button class="btn btn-dark delete-btn" type="submit">Delete</button>
-        </form>
-
+         <form action="/manager/delete/{{_id}}" method="post">
+            <button class="btn btn-dark delete-btn" type="submit">Delete</button>
+          </form>
+        </div>
       </div>
     </div>
   </main>
@@ -124,3 +125,4 @@
     </div>
   </div>
 </div>
+
